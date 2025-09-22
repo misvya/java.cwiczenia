@@ -19,15 +19,17 @@ public class Main {
 
         System.out.println(silnia(20));
 
-        long liczba = 8999999999999999999L;
+        //long liczba = 8999999999999999999L;
         //long liczba = 120;
-        int n = 0;
-        while(liczba > 0 ){
-            n++;
-        }
-        System.out.println(n);
+        //int n = 0;
+        //while(liczba > 0 ){
+            //n++;
+        //}
+        //System.out.println(n);
 
         System.out.println(potega(2,3));
+        System.out.println(zmienZDziesietnegoNaSystem(6, 2)); //110
+        System.out.println(zmienZDziesietnegoNaSystem(171, 16));
     }
 
     private static int suma(int a, int b){
@@ -169,7 +171,21 @@ public class Main {
             }
             k--;
         }
-
         return true;
+    }
+    private static String zmienZDziesietnegoNaSystem(int liczba, int system){
+        String wynik = " ";
+        int cyfra;
+        while (liczba > 0){
+            cyfra = liczba % system;
+            if(cyfra > 9){
+                cyfra = cyfra + 55;
+                wynik = (char)cyfra + wynik;
+            }else{
+                wynik = cyfra + wynik;
+            }
+            liczba = liczba / system;
+        }
+        return wynik;
     }
 }
