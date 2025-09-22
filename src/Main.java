@@ -15,7 +15,19 @@ public class Main {
 
         System.out.println(nwd(48, 34)); //2
         System.out.println(nwd(48, 0));// 48
-        System.out.println(nwd(0, 10)); //
+        System.out.println(nwd(0, 10)); //10
+
+        System.out.println(silnia(20));
+
+        long liczba = 8999999999999999999L;
+        //long liczba = 120;
+        int n = 0;
+        while(liczba > 0 ){
+            n++;
+        }
+        System.out.println(n);
+
+        System.out.println(potega(2,3));
     }
 
     private static int suma(int a, int b){
@@ -80,7 +92,7 @@ public class Main {
     }
 
     /**
-     * zwraca mwd metodą euklidesa
+     * zwraca nwd metodą euklidesa
      * @param a poierwsza liczba >=0
      * @param b druga liczba >=0
      * @return
@@ -114,11 +126,16 @@ public class Main {
     }
 
     /**
-     * @param n
-     * @return
+     * @param n - liczba całkowita w zakresie od 0 do 20
+     * @return siolnia liczby n
      */
     private static long silnia(int n){
         //5! = 1 * 2 * 3 * 4 * 5
+        long wynikSilnia = 1;
+        for (int i =2; i <= n; i++){
+            wynikSilnia *= i;
+        }
+        return wynikSilnia;
     }
 
     /**
@@ -126,7 +143,33 @@ public class Main {
      * @param wykladnik liczba calkowita dodatnia lub ujemna lub 0
      * @return
      */
-    private static int potega(int podstawa, int wykladnik){
+    private static double potega(double podstawa, int wykladnik){
+        double wynik = 1;
+        boolean czyUjemna = false;
+        if(wykladnik <0){
+            czyUjemna = true;
+            wykladnik =- wykladnik;
+        }
+        for (int i = 0; i <wykladnik; i++){
+            wynik = wynik * podstawa;
+        }
+        if(czyUjemna){
+            return 1 / wynik;
+        }
+        return wynik;
+    }
 
+    private static boolean czyPalidrom(String slowo){
+        slowo.charAt(0);
+        //String jest niemutowalny
+        int k = slowo.length()-1;
+        for (int i = 0; i < slowo.length() / 2; i++) {
+            if(slowo.charAt(i) != slowo.charAt(k)){
+                return false;
+            }
+            k--;
+        }
+
+        return true;
     }
 }
