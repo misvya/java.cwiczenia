@@ -9,6 +9,13 @@ public class Main {
         System.out.println(czyPierwsza(25)); //false
         System.out.println(czyPierwsza(23)); //true
         System.out.println(czyPierwsza(24)); //false
+
+        System.out.println(ileDzielnikowMaLiczba(12)); //6
+        System.out.println(ileDzielnikowMaLiczba(1)); //1
+
+        System.out.println(nwd(48, 34)); //2
+        System.out.println(nwd(48, 0));// 48
+        System.out.println(nwd(0, 10)); //
     }
 
     private static int suma(int a, int b){
@@ -70,5 +77,56 @@ public class Main {
         }
 
         return true;
+    }
+
+    /**
+     * zwraca mwd metodą euklidesa
+     * @param a poierwsza liczba >=0
+     * @param b druga liczba >=0
+     * @return
+     */
+    private static int nwd(int a, int b){
+        while (b != 0){
+            int reszta = a % b;
+            a = b;
+            b = reszta;
+        }
+        return a;
+    }
+
+    /**
+     * @param liczba
+     * @return
+     */
+    private static int ileDzielnikowMaLiczba(int liczba){
+        int LicznikDzielnikow = 0;
+        for (int i = 1; i <= Math.sqrt(liczba); i++) {
+            if(liczba % i == 0){
+                if(i == liczba / i){
+                    LicznikDzielnikow++;
+                    break;
+                }else{
+                    LicznikDzielnikow = LicznikDzielnikow + 2;
+                }
+            }
+        }
+        return LicznikDzielnikow;
+    }
+
+    /**
+     * @param n
+     * @return
+     */
+    private static long silnia(int n){
+        //5! = 1 * 2 * 3 * 4 * 5
+    }
+
+    /**
+     * @param podstawa licznik rzeczywista
+     * @param wykladnik liczba calkowita dodatnia lub ujemna lub 0
+     * @return
+     */
+    private static int potega(int podstawa, int wykladnik){
+
     }
 }
